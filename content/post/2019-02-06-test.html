@@ -1,0 +1,135 @@
+---
+title: test
+author: ~
+date: '2019-02-06'
+slug: test
+categories: []
+tags: []
+---
+
+
+
+<pre class="r"><code>library(knitr)
+library(magrittr)
+library(kableExtra)
+library(shiny)
+
+data.frame(a= c(1,2,3)) %&gt;% kable(caption = &#39;test&#39;,format = &#39;html&#39;)</code></pre>
+<table>
+<caption>
+<span id="tab:test1">Table 1: </span>test
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;">
+a
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>
+lapply(1:2,function(x){
+    data.frame(a= c(1,2,3)) %&gt;% kable(caption = &#39;test2&#39;,format = &#39;html&#39;) %&gt;% HTML()
+}) -&gt; tables
+
+tables[[1]]</code></pre>
+<table>
+<caption>(\#tab:test2)test2</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> a </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+</tbody>
+</table>
+<pre class="r"><code>
+tables[[2]]</code></pre>
+<table>
+<caption>(\#tab:test2)test2</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> a </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+</tbody>
+</table>
+<pre class="r"><code>for(i in 1){
+  table = data.frame(a= c(1,2,3)) %&gt;% kable(caption = &#39;test3&#39;,format = &#39;html&#39;) %&gt;% HTML()
+}
+table</code></pre>
+<table>
+<caption>(\#tab:test3)test3</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> a </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+</tbody>
+</table>
+<pre class="r"><code>{data.frame(a= c(1,2,3)) %&gt;% kable(caption = &#39;test4&#39;,format = &#39;html&#39;) %&gt;% HTML()}</code></pre>
+<table>
+<caption>(\#tab:test4)test4</caption>
+ <thead>
+  <tr>
+   <th style="text-align:right;"> a </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:right;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 2 </td>
+  </tr>
+  <tr>
+   <td style="text-align:right;"> 3 </td>
+  </tr>
+</tbody>
+</table>

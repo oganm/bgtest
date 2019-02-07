@@ -1,0 +1,46 @@
+---
+title: test
+author: ~
+date: '2019-02-06'
+slug: test
+categories: []
+tags: []
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+```{r test1}
+library(knitr)
+library(magrittr)
+library(kableExtra)
+library(shiny)
+
+data.frame(a= c(1,2,3)) %>% kable(caption = 'test',format = 'html')
+
+```
+
+```{r test2}
+
+lapply(1:2,function(x){
+    data.frame(a= c(1,2,3)) %>% kable(caption = 'test2',format = 'html') %>% HTML()
+}) -> tables
+
+tables[[1]]
+
+tables[[2]]
+```
+
+
+```{r test3}
+for(i in 1){
+  table = data.frame(a= c(1,2,3)) %>% kable(caption = 'test3',format = 'html') %>% HTML()
+}
+table
+```
+
+```{r test4}
+{data.frame(a= c(1,2,3)) %>% kable(caption = 'test4',format = 'html') %>% HTML()}
+```
